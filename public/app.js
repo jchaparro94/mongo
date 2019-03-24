@@ -1,7 +1,7 @@
 //This grabs the articles as a json
 $.get("/articles", function(data) {
     for (let i = 0; i < data.length; i++) {
-        $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br>" + data[i].summary + "<br>" + data[i].link + "</p>");
+        $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br/>" + data[i].summary + "<br>" + data[i].link + "</p>");
     }
 });
 
@@ -20,7 +20,7 @@ $(document).on("click", "textarea", function() {
         $("#notes").append("<h2>" + data.title + "</h2>");
         $("#notes").append("<input id='titleinput' name='title' >");
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
-        $("#notes").append("<button data-id='" + data.id + "' id=savenote'>Save</button");
+        $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
         // if note exists, grab it and place it in the title and body areas
         if (data.note) {
             $("#titleinput").val(data.note.title);
